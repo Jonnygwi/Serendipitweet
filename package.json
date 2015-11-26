@@ -1,0 +1,17 @@
+{
+    "name": "TwitterBot",
+    "version": "0.1.1",
+    "description": "Just another Twitter bot",
+    "dependencies": 
+    {
+        "twitter": "1.2.5"
+    },
+    "devDependencies": {},
+    "author": "matteomenapace",
+    "repository": 
+    {
+        "type": "git",
+        "url": "https://github.com/RavensbourneWebMedia/Dynamic-Web.git"
+    },
+    "license": "CC-BY-NC-4.0"
+}
