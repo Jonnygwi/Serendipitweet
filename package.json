@@ -1,17 +1,17 @@
 {
-    "name": "TwitterBot",
-    "version": "0.1.1",
+    "name": "Serendipitweer",
+    "version": "0.1",
     "description": "Just another Twitter bot",
     "dependencies": 
     {
         "twitter": "1.2.5"
     },
     "devDependencies": {},
-    "author": "matteomenapace",
+    "author": "JonnyGwillim, h_dif",
     "repository": 
     {
         "type": "git",
-        "url": "https://github.com/RavensbourneWebMedia/Dynamic-Web.git"
+        "url": "https://github.com/Jonnygwi/Serendipitweet"
     },
     "license": "CC-BY-NC-4.0"
 }
