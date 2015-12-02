@@ -1,12 +1,22 @@
 {
+    "name": "TwitterBot",
+    "version": "1.0.0",
     "name": "Serendipitweer",
     "version": "0.1",
+
     "description": "Just another Twitter bot",
+    "main": "index.html",
     "dependencies": 
     {
         "twitter": "1.2.5"
     },
     "devDependencies": {},
+    "author": "@JonnyGwillim and @h_dif",
+    "window": {
+        "toolbar":false,
+        "width" 800,
+        "height": 500
+    },
     "author": "JonnyGwillim, h_dif",
     "repository": 
     {
