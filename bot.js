@@ -1,10 +1,20 @@
 var Twitter     = require('twitter'),
-    config      = require('./config'),
-    _           = require('underscore'),
-    twitterBot  = new Twitter(config.keys),
     Twit        = require('twit'),
-    T           = new Twit(config.keys)
+    _           = require('underscore');
 
+// Config
+var config      = {
+                    consumer_key:         process.env.CONSUMER_KEY || CONSUMER_KEY,
+                    consumer_secret:      process.env.CONSUMER_SECRET || CONSUMER_SECRET,
+                    access_token:         process.env.ACCESS_TOKEN || ACCESS_TOKEN,
+                    access_token_secret:  process.env.ACCESS_TOKEN_SECRET || ACCESS_TOKEN_SECRET
+                };
+
+// Initializing bots
+var twitterBot  = new Twitter(config),
+    T           = new Twit(config);
+
+// Global vars
 var terminals               = {},
     startWords              = [],
     wordStats               = {},
@@ -18,7 +28,7 @@ var terminals               = {},
                                 exclude_replies: true,
                                 include_rts: false,
                                 count: 200
-                              }
+                              };
 
 // Get serendipitweets follower ids
 
