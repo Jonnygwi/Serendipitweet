@@ -1,12 +1,12 @@
 {
     "name": "TwitterBot",
     "version": "1.0.0",
-    "name": "Serendipitweer",
+    "name": "Serendipitweet",
     "version": "0.1",
 
     "description": "Just another Twitter bot",
     "main": "index.html",
-    "dependencies": 
+    "dependencies":
     {
         "twitter": "1.2.5"
     },
@@ -18,7 +18,7 @@
         "height": 500
     },
     "author": "JonnyGwillim, h_dif",
-    "repository": 
+    "repository":
     {
         "type": "git",
         "url": "https://github.com/Jonnygwi/Serendipitweet"
