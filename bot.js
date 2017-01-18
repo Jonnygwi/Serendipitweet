@@ -4,10 +4,13 @@ var Twitter     = require('twitter'),
 
 // Config
 var config      = {
-                    consumer_key:         process.env.CONSUMER_KEY || CONSUMER_KEY,
-                    consumer_secret:      process.env.CONSUMER_SECRET || CONSUMER_SECRET,
-                    access_token:         process.env.ACCESS_TOKEN || ACCESS_TOKEN,
-                    access_token_secret:  process.env.ACCESS_TOKEN_SECRET || ACCESS_TOKEN_SECRET
+                    consumer_key:         (process.env.CONSUMER_KEY || CONSUMER_KEY),
+                    consumer_secret:      (process.env.CONSUMER_SECRET || CONSUMER_SECRET),
+                    // One for Twit
+                    access_token:         (process.env.ACCESS_TOKEN_KEY || ACCESS_TOKEN_KEY),
+                    // One for Twitter
+                    access_token_key:     (process.env.ACCESS_TOKEN_KEY || ACCESS_TOKEN_KEY),
+                    access_token_secret:  (process.env.ACCESS_TOKEN_SECRET || ACCESS_TOKEN_SECRET)
                 };
 
 // Initializing bots
@@ -21,7 +24,7 @@ var terminals               = {},
     fIds                    = [],
     totalFollowers          = 0,
     currentFollowerCounter  = 0,
-    howManySentences        = 10,
+    howManySentences        = 1,
     urls                    = [],
     hashTags                = [],
     parameters              = {
@@ -36,7 +39,6 @@ T.get('followers/ids', {
     screen_name: 'botserendipity'
 }, function (err, data, response) {
     fIds = fIds.concat(data.ids)
-
     totalFollowers = (fIds.length < 300) ? fIds.length : 300 // Twitter may complain if we're calling its API too many times
 
     // Once all followers have been harvested we need to get each of their statuses
@@ -60,7 +62,9 @@ function getNextFollowerStatuses() {
             if (getRandomNumer() == 2) {
                     sentence = insertExtras(sentence)
             }
-            console.log('- ' + sentence)
+            T.post('statuses/update', { status: sentence }, function(err, data, response) {
+              console.log(data)
+            })
         }
     }
 }
@@ -74,7 +78,6 @@ function getUserStatuses(parameters) {
             for (var i = 0; i < tweets.length; i++)
             {
                 var tweet = tweets[i]
-
                 // HASHTAGS
                 if (tweet.entities.hashtags)
                 {
@@ -98,7 +101,6 @@ function getUserStatuses(parameters) {
                 text = removeHashtags(text)
                 text = removeMentions(text)
                 text = removePunctuation(text)
-
                 var words = text.split(' ')
 
                 terminals[words[words.length - 1]] = true
@@ -115,6 +117,11 @@ function getUserStatuses(parameters) {
 
             getNextFollowerStatuses()
 
+        } else if (error) {
+          currentFollowerCounter++
+          getNextFollowerStatuses()
+        } else {
+          console.log(error)
         }
     })
 }
@@ -154,7 +161,6 @@ function makeMarkovSentence(minLength) {
         if (sentence.length > minLength && terminals.hasOwnProperty(word)) break
     }
     if (sentence.length < minLength) return makeMarkovSentence(minLength)
-
     return sentence.join(' ')
 }
 

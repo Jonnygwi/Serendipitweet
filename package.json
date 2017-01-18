@@ -1,27 +1,22 @@
 {
-    "name": "TwitterBot",
-    "version": "1.0.0",
-    "name": "Serendipitweet",
-    "version": "0.1",
-
-    "description": "Just another Twitter bot",
-    "main": "index.html",
-    "dependencies":
-    {
-        "twitter": "1.2.5"
-    },
-    "devDependencies": {},
-    "author": "@JonnyGwillim and @h_dif",
-    "window": {
-        "toolbar":false,
-        "width": 800,
-        "height": 500
-    },
-    "author": "JonnyGwillim, h_dif",
-    "repository":
-    {
-        "type": "git",
-        "url": "https://github.com/Jonnygwi/Serendipitweet"
-    },
-    "license": "CC-BY-NC-4.0"
+  "name": "Serendipitweet",
+  "version": "0.1",
+  "description": "Just another Twitter bot",
+  "main": "index.html",
+  "dependencies": {
+    "twit": "^2.2.5",
+    "twitter": "^1.7.0"
+  },
+  "devDependencies": {},
+  "author": "JonnyGwillim, h_dif",
+  "window": {
+    "toolbar": false,
+    "width": 800,
+    "height": 500
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jonnygwi/Serendipitweet"
+  },
+  "license": "CC-BY-NC-4.0"
 }
