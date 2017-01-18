@@ -1,11 +1,12 @@
 {
   "name": "Serendipitweet",
-  "version": "0.1",
+  "version": "1",
   "description": "Just another Twitter bot",
   "main": "index.html",
   "dependencies": {
     "twit": "^2.2.5",
-    "twitter": "^1.7.0"
+    "twitter": "^1.7.0",
+    "util": "^0.10.3"
   },
   "devDependencies": {},
   "author": "JonnyGwillim, h_dif",
