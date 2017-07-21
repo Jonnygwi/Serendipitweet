@@ -4,4 +4,5 @@ Twitter bot that sends tweet mashups based on it's followers' tweets. It require
 
 
 [Twitter](https://twitter.com/BotSerendipity)
+
 Created by: @h_dif & @JonnyGwillim 
